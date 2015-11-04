@@ -1,17 +1,24 @@
 <?php
 $random = mt_rand (1, 100);
-$input = 1;
+$input = 0.5;
 $guesses = 0;
-while ($input != $random && $input != "exit" && $input != 0) {
+
+
+while ($input != $random && $input != "exit") {
+
 	fwrite(STDOUT, "Take a Guess: ");
 	$input = trim(fgets(STDIN));
-	if ($input == "exit" || $input == 0) {
-		echo "You're a quitter\n";
+
+	if ($input == "exit") {
+		echo "You're a quitter!\n";
+	} else if ($input == 0) {
+		echo "That is not a valid guess\n";
+		$guesses++;
 	} else if ($input < $random) {
-		fwrite(STDOUT, "HIGHER\n");
+		echo "HIGHER\n";
 		$guesses++;
 	} else if ($input > $random) {
-		fwrite(STDOUT, "LOWER\n");
+		echo "LOWER\n";
 		$guesses++;
 	} 
 }
