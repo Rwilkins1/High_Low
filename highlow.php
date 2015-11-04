@@ -10,23 +10,22 @@ while ($input != $random && $input != "exit") {
 	$input = trim(fgets(STDIN));
 
 	if ($input == "exit") {
+		$guesses++;
 		echo "You're a quitter!\n";
+		echo "Number of guesses it took you to give up: {$guesses}\n";
 	} else if ($input == 0) {
 		echo "That is not a valid guess\n";
-		$guesses++;
 	} else if ($input < $random) {
 		echo "HIGHER\n";
-		$guesses++;
 	} else if ($input > $random) {
 		echo "LOWER\n";
+	} else if ($input == $random) {
 		$guesses++;
-	} 
+		echo "GOOD GUESS!!!!!\n";
+		echo "Number of Guesses: {$guesses}\n";
+	}
+	$guesses++;
 }
 
-if ($input == $random) {
-	$guesses++;
-	echo "GOOD GUESS!!!!!\n";
-	echo "Number of Guesses: {$guesses}\n";
-}
 
 ?>
