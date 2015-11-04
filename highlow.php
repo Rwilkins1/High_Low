@@ -3,26 +3,26 @@
 if ($argc == 3) {
 	if (is_numeric($argv[1]) && is_numeric($argv[2])) {
 		if($argv[1] > $argv[2]) {
-			$arg1 = $argv[2];
-			$arg2 = $argv[1];
+			$min = $argv[2];
+			$max = $argv[1];
 		} else {
-			$arg1 = $argv[1];
-			$arg2 = $argv[2];
+			$min = $argv[1];
+			$max = $argv[2];
 		}
 	} else {
 		die("Please enter a valid argument\n");
 	}
 	
 } else {
-	$arg1 = 1;
-	$arg2 = 100;
+	$min = 1;
+	$max = 100;
 }
 
-$random = mt_rand ($arg1, $arg2);
+$random = mt_rand ($min, $max);
 $input = 0.5;
 $guesses = 0;
 
-echo "I'm thinking of a number between $arg1 and $arg2. What is it?\n";
+echo "I'm thinking of a number between $min and $max. What is it?\n";
 while ($input != $random && $input != "exit") {
 
 	fwrite(STDOUT, "Take a Guess: ");
