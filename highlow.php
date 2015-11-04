@@ -1,9 +1,23 @@
 <?php
-$random = mt_rand (1, 100);
+
+if ($argc == 3) {
+	if (is_numeric($argv[1]) && is_numeric($argv[2])) {
+		$arg1 = $argv[1];
+		$arg2 = $argv[2];
+	} else {
+		die("Please enter a valid argument\n");
+	}
+	
+} else {
+	$arg1 = 1;
+	$arg2 = 100;
+}
+
+$random = mt_rand ($arg1, $arg2);
 $input = 0.5;
 $guesses = 0;
 
-echo "I'm thinking of a number between 1 and 100. What is it?\n";
+echo "I'm thinking of a number between $arg1 and $arg2. What is it?\n";
 while ($input != $random && $input != "exit") {
 
 	fwrite(STDOUT, "Take a Guess: ");
