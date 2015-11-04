@@ -24,6 +24,7 @@ while ($input != $random && $input != "exit") {
 }
 
 if ($input == $random) {
+	$guesses++;
 	echo "GOOD GUESS!!!!!\n";
 	echo "Number of Guesses: {$guesses}\n";
 }
