@@ -3,7 +3,7 @@ $random = mt_rand (1, 100);
 $input = 0.5;
 $guesses = 0;
 
-
+echo "I'm thinking of a number between 1 and 100. What is it?\n";
 while ($input != $random && $input != "exit") {
 
 	fwrite(STDOUT, "Take a Guess: ");
@@ -28,6 +28,5 @@ if ($input == $random) {
 	echo "GOOD GUESS!!!!!\n";
 	echo "Number of Guesses: {$guesses}\n";
 }
-
 
 ?>
