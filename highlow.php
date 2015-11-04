@@ -2,8 +2,13 @@
 
 if ($argc == 3) {
 	if (is_numeric($argv[1]) && is_numeric($argv[2])) {
-		$arg1 = $argv[1];
-		$arg2 = $argv[2];
+		if($argv[1] > $argv[2]) {
+			$arg1 = $argv[2];
+			$arg2 = $argv[1];
+		} else {
+			$arg1 = $argv[1];
+			$arg2 = $argv[2];
+		}
 	} else {
 		die("Please enter a valid argument\n");
 	}
